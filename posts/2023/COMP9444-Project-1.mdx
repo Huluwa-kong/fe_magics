@@ -1,0 +1,47 @@
+---
+title: COMP444 Project 1
+date: 2023-01-14 06:11:33
+tags: ['COMP444', 'Project 1']
+---
+
+# COMP9444 Project 1 Basic tensorflow and digit recognition
+
+## Introduction
+
+This and all following assignments will use the Python API for the TensorFlow library.
+TensorFlow (TF) is an opensource library primarily used to construct, train and evaluate machine learning models.
+TF allows rapid development and supports automatic differentiation  meaning backprop is able to be
+done automatically for any model adequately defined. TF also abstracts away much of the low level
+code required to set up training on GPU’s; in many cases TF will automatically detect and utilize
+your computer’s GPU if it has one. Central to the design of TF is the concept of a ‘graph’ a low
+level representation of a model consisting of nodes and tensors. Broadly, implementing a TF model
+can be broken down into two sections; creating the graph, and training/testing it. This assignment
+is mainly concerned with graph creation. You can read more about the general structure of TensorFlow here.
+
+
+This assignment is split into two parts. Part 1 contains basic introductory exercises using TensorFlow’s core API. In Part 2, you will be implementing a single layer network, a two layer network and a convolutional network to classify handwritten digits. We will work with the MNIST dataset, a common dataset used to evaluate Machine Learning models.
+
+Be sure to read this document in its entirety before starting the assignment.
+## Notes/Common Problems
+1.Tensorflow has several levels of abstraction in it’s API, with some sections designed for rapid prototyping (Keras, Estimators), others for more mid-level functionality (tf.layers,tf.nn), and some exposing base functionality. For this course we will mostly be focusing on the core and mid-level APIs. For this Assignment you may NOT make calls to the following parts of the API;
+tf.contrib (including eager). By extension: do not follow any example that uses the following call at any point in the code. tf.enable_eager_execution().
+tf.keras
+Anything to do with estimators (tf.estimator)
+Calls from these sections of the API will cause your code to fail the autotests and for you to receive a mark of 0 for that section of the assignment. It is suggested to call functions from:
+tf.layers (this is mostly wrappers for tf.nn but with nicer parameter structuring)
+tf.nn
+Calls from other parts of the API such as tf.math are allowed but discouraged – there is probably an easier way to do what you are trying to do.
+2.Tensorflow is under extremely active development, and many Google searches will point to answers that use old versions of the API, or older version of the docs. Ensure you are always viewing information relevant to 1.9
+3.There a great many tutorials dealing with MNIST and TensorFlow. Because of the above point their utility is limited for this assignment. It is suggested to read and understand the docs themselves as opposed to blindly following tutorials.
+4.In general, you should never call functions that have depreciation warnings in the documentation (e.g. tf.nn.softmax_cross_entropy_with_logits())
+## Preliminaries
+Before commencing this assignment, you should download and install TensorFlow (instructions here) and the appropriate python version (3.5 – 3.7 are all ok, do not use 2.7x). It is also helpful to complete the ‘Low level Introduction’ tutorial located on the TensorFlow website here.
+
+Copy the archive src.zip into your own filespace and unzip it. Then type
+```shell
+cd src
+```
+You will see two files: `train.py` and `hw1.py`
+
+...
+
